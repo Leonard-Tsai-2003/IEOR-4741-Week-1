@@ -1,0 +1,13 @@
+# order book snapshot
+# columns: side  price  size
+# B = bid (buy), A = ask (sell)
+B  99.94  150
+B  99.96  220
+B  99.98  310
+B  100.00 400
+B  100.00 100
+A  100.02 250
+A  100.02 50
+A  100.04 180
+A  100.06 400
+A  100.08 90

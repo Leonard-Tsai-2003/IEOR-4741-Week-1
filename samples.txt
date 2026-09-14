@@ -1,0 +1,5 @@
+# three top-of-book samples (same prices, different sizes)
+# columns: bid_px  bid_sz  ask_px  ask_sz
+100.00  500  100.02  500
+100.00  900  100.02  100
+100.00  100  100.02  900
