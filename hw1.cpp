@@ -93,13 +93,8 @@ int main() {
     for (int i = 0; i < sample_count; ++i) print_metrics(names[i], samples[i]);
 
     // HW 1: read the top-of-book snapshot and print the metrics
-    Quotes book{};
-    if (!read_best_quotes("data/book.txt", book)) {
-        printf("failed to read data/book.txt\n");
-        return 1;
-    }
     printf("\ntop-of-book snapshot:\n");
-    print_metrics("data/book.txt", book);
+    if (!print_book_metrics("data/book.txt")) return 1;
 
     // HW 1: read the top-of-book sequence and print the metrics
     const char* books[] = {
