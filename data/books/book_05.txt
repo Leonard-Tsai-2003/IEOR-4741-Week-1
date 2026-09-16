@@ -1,0 +1,14 @@
+# Snapshot 5: wider, ask-heavy market after a price move down
+# side  price  size
+B 100.00 300
+B 99.98 400
+B 99.96 310
+B 99.94 240
+B 99.92 190
+B 99.90 140
+A 100.04 700
+A 100.06 400
+A 100.08 310
+A 100.10 240
+A 100.12 190
+A 100.14 140

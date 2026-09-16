@@ -1,0 +1,14 @@
+# Snapshot 2: bid size increases and both prices move up
+# side  price  size
+B 100.01 750
+B 99.99 320
+B 99.97 260
+B 99.95 210
+B 99.93 160
+B 99.91 110
+A 100.03 300
+A 100.05 320
+A 100.07 260
+A 100.09 210
+A 100.11 160
+A 100.13 110

@@ -1,0 +1,14 @@
+# Snapshot 4: ask side becomes dominant and spread widens
+# side  price  size
+B 100.02 200
+B 100.00 360
+B 99.98 290
+B 99.96 230
+B 99.94 180
+B 99.92 130
+A 100.05 900
+A 100.07 360
+A 100.09 290
+A 100.11 230
+A 100.13 180
+A 100.15 130

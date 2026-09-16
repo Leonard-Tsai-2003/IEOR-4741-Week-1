@@ -14,6 +14,16 @@ static void print_metrics(const char* label, const Quotes& q) {
            m.mid, m.spread, m.micro, m.obi);
 }
 
+static bool print_book_metrics(const char* path) {
+    Quotes book{};
+    if (!read_best_quotes(path, book)) {
+        printf("failed to read %s\n", path);
+        return false;
+    }
+    print_metrics(path, book);
+    return true;
+}
+
 Metrics compute(const Quotes& q) {
     const double total_size = q.bid_sz + q.ask_sz;
     return {(q.bid_px + q.ask_px) / 2.0,
@@ -66,10 +76,11 @@ bool read_best_quotes(const char* path, Quotes& q) {
 }
 
 int main() {
+    // LAB 01: read the samples and print the metrics
     constexpr int sample_count = 3;
     Quotes samples[sample_count];
-    if (read_samples("samples.txt", samples, sample_count) < sample_count) {
-        printf("failed to read samples.txt\n");
+    if (read_samples("data/samples.txt", samples, sample_count) < sample_count) {
+        printf("failed to read data/samples.txt\n");
         return 1;
     }
 
@@ -78,16 +89,26 @@ int main() {
         "bid-heavy 900/100",
         "ask-heavy 100/900",
     };
-
     printf("three samples:\n");
     for (int i = 0; i < sample_count; ++i) print_metrics(names[i], samples[i]);
 
+    // HW 1: read the top-of-book snapshot and print the metrics
     Quotes book{};
-    if (!read_best_quotes("book.txt", book)) {
-        printf("failed to read book.txt\n");
+    if (!read_best_quotes("data/book.txt", book)) {
+        printf("failed to read data/book.txt\n");
         return 1;
     }
-    printf("top-of-book snapshot:\n");
-    print_metrics("book.txt", book);
+    printf("\ntop-of-book snapshot:\n");
+    print_metrics("data/book.txt", book);
+
+    // HW 1: read the top-of-book sequence and print the metrics
+    const char* books[] = {
+        "data/books/book_01.txt", "data/books/book_02.txt",
+        "data/books/book_03.txt", "data/books/book_04.txt",
+        "data/books/book_05.txt",
+    };
+    printf("\ntop-of-book sequence:\n");
+    for (const char* path : books)
+        if (!print_book_metrics(path)) return 1;
     return 0;
 }
